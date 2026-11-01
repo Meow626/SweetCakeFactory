@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Cart | Sweet Cake Factory</title>
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="cart">
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html"><img src="logo.svg" alt="" width="40" height="40"> Sweet Cake Factory</a>
+      <ul class="nav-links">
+        <li><a href="index.html#menu">Menu</a></li>
+        <li><a href="index.html#about">About Us</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li id="auth-nav" class="auth-slot"></li>
+      </ul>
+      <div class="nav-actions">
+        <a class="cart-link" href="cart.html" aria-label="Cart" aria-current="page"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3 2a1 1 0 0 0 0 2h1.6l2.7 10.4A2 2 0 0 0 9.2 16H18a2 2 0 0 0 1.9-1.4L22 7H6.3L5.9 5.4A2 2 0 0 0 4 4H3Z"/></svg><span class="cart-badge" data-cart-count hidden>0</span></a>
+        <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-hero"><div class="wrap"><h1>Your Cart</h1><p>Review your cakes, then send your order request.</p></div></div>
+
+  <main class="cart-page">
+    <div class="wrap">
+      <div id="cart-empty" class="cart-empty" hidden>
+        <h2>Your cart is empty</h2>
+        <p>Pick a cake from our menu and it will show up here.</p>
+        <a class="btn" href="index.html#menu">Browse the Menu</a>
+      </div>
+
+      <div id="cart-loading" class="cart-empty"><p>Loading your cart...</p></div>
+
+      <div class="cart-layout" id="cart-layout" hidden>
+        <section class="cart-items" aria-labelledby="cart-items-h">
+          <h2 id="cart-items-h" class="sr-only">Items in your cart</h2>
+          <div class="cart-head" aria-hidden="true"><span>Cake</span><span>Quantity</span><span>Total</span></div>
+          <div id="cart-list"></div>
+          <div class="cart-actions">
+            <a class="btn outline small" href="index.html#menu">&larr; Add more cakes</a>
+            <span class="clear-group"><button class="btn outline small" type="button" id="cart-clear">Empty cart</button> <button class="btn outline small" type="button" id="cart-clear-cancel" hidden>Cancel</button></span>
+          </div>
+        </section>
+
+        <aside class="cart-summary form-card" aria-labelledby="checkout-h">
+          <h2 id="checkout-h">Checkout</h2>
+
+          <div class="login-gate" id="order-gate" hidden>
+            <p><b>Please log in to send your order request.</b><br>Your cart will be waiting for you.</p>
+            <p><a class="btn" id="gate-login" href="login.html?next=cart.html">Log in</a>
+               <a class="btn outline" id="gate-register" href="register.html?next=cart.html">Create account</a></p>
+          </div>
+
+          <form id="order-form" novalidate>
+            <div id="order-alert" class="alert error" role="alert" hidden></div>
+            <div class="field"><label for="o-name">Your name</label><input id="o-name" name="name" type="text" autocomplete="name" maxlength="80" required></div>
+            <div class="field"><label for="o-phone">Contact number</label><input id="o-phone" name="phone" type="tel" autocomplete="tel" placeholder="0917 123 4567" maxlength="20" required></div>
+            <div class="field"><label for="o-email">Email address</label><input id="o-email" name="email" type="email" autocomplete="email" maxlength="120" required></div>
+            <div class="field">
+              <label for="o-date">Requested date</label>
+              <input id="o-date" name="date" type="date" required>
+              <div class="hint">Please allow at least <span id="lead-days">2</span> days.</div>
+            </div>
+            <div class="field"><label for="o-notes">Special instructions <span style="font-weight:400">(optional)</span></label>
+              <textarea id="o-notes" name="instructions" maxlength="1000" placeholder="Cake message, theme, colors, allergies, pickup or delivery address..."></textarea><div class="hint" id="notes-count" style="text-align:right">0 / 1000</div></div>
+            <fieldset class="pay-methods">
+              <legend>Payment method</legend>
+              <label class="pay-opt"><input type="radio" name="payment" value="gcash" checked>
+                <span class="pay-body"><span class="pay-title"><span class="gcash-logo" aria-hidden="true">G</span> GCash</span><span class="pay-desc">Pay by GCash after we confirm your final price</span></span></label>
+              <label class="pay-opt"><input type="radio" name="payment" value="cash">
+                <span class="pay-body"><span class="pay-title">Cash</span><span class="pay-desc">Pay when you pick up or receive your cake</span></span></label>
+              <div class="gcash-box" id="gcash-box">
+                <b>How GCash works:</b> we reply with your final amount, then you send it to
+                <b data-site="gcashName">Sweet Cake Factory</b> &middot; <b data-site="gcashNumber">0917-000-0000</b>
+                and reply with a screenshot of your payment and your reference number.
+              </div>
+            </fieldset>
+            <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+            <div class="totals">
+              <div><span>Items</span><span id="sum-count">0</span></div>
+              <div><span>Payment</span><span id="sum-pay">GCash</span></div>
+              <div class="grand"><span>Estimated total</span><strong id="order-total">-</strong></div>
+            </div>
+            <button class="btn" type="submit" style="width:100%">Send Order Request</button>
+            <p class="hint" style="text-align:center;margin-top:10px">This is a request. Your order is confirmed once we reply with the final price and payment details.</p>
+          </form>
+        </aside>
+      </div>
+
+      <div class="success-box form-card" id="order-success" hidden>
+        <h2>Thank you! Your request was sent</h2>
+        <div class="code" id="success-code"></div>
+        <p id="success-note"></p>
+        <p id="success-pay" class="success-pay" hidden></p>
+        <p><a class="btn" href="index.html#menu">Order more cakes</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p><b>Sweet Cake Factory</b> &middot; Baked sweet. Made fresh. Shared with love.</p>
+      <p>&copy; <span data-year></span> Sweet Cake Factory. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="validate.js"></script>
+  <script src="backend.js"></script>
+  <script src="api.js"></script>
+  <script src="catalog-data.js"></script>
+  <script src="cart.js"></script>
+  <script src="app.js"></script>
+  <script src="cart-page.js"></script>
+</body>
+</html>

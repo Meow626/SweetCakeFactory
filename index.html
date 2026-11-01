@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sweet Cake Factory | Fresh Cakes Made to Order</title>
+  <meta name="description" content="Order fresh chocolate, strawberry, ube and custom celebration cakes from Sweet Cake Factory. Send your order request online.">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html"><img src="logo.svg" alt="" width="40" height="40"> Sweet Cake Factory</a>
+      <ul class="nav-links">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li id="auth-nav" class="auth-slot"></li>
+      </ul>
+      <div class="nav-actions">
+        <a class="cart-link" href="cart.html" aria-label="Cart"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3 2a1 1 0 0 0 0 2h1.6l2.7 10.4A2 2 0 0 0 9.2 16H18a2 2 0 0 0 1.9-1.4L22 7H6.3L5.9 5.4A2 2 0 0 0 4 4H3Z"/></svg><span class="cart-badge" data-cart-count hidden>0</span></a>
+        <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <h1>Baked sweet.<br><span>Made fresh.</span><br>Shared with love.</h1>
+          <p class="lede">Loaded chocolate cakes, sprinkle-topped classics, and made-to-order celebration cakes, baked fresh for your special day.</p>
+          <div class="hero-ctas">
+            <a class="btn" href="#menu">See the Menu</a>
+            <a class="btn outline" href="cart.html">View Cart</a>
+          </div>
+        </div>
+        <div class="hero-art"><img src="chocolate-berry-mousse.jpg" alt="Chocolate berry mousse cake" width="400" height="300"></div>
+      </div>
+    </section>
+
+    <div class="strip">
+      <div class="wrap">
+        <div><h4>Order Ahead</h4><p>Send your request at least <span id="lead-days-strip">2</span> days before your date.</p></div>
+        <div><h4>Made Fresh</h4><p>Baked with real butter and cream.</p></div>
+        <div><h4>Custom Designs</h4><p>Tell us your theme in the special instructions.</p></div>
+        <div><h4>We Confirm Everything</h4><p>We reply with final price and payment details.</p></div>
+      </div>
+    </div>
+
+    <section class="block" id="menu">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Our Cakes</h2>
+          <p>Pick a cake, choose how many, then press <b>Add to Cart</b>.</p>
+        </div>
+        <div class="filters" id="catalog-filters" role="group" aria-label="Filter by category"></div>
+        <div class="grid" id="catalog-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="block alt" id="about">
+      <div class="wrap about-grid">
+        <div class="about-art"><img src="strawberry-cream.jpg" alt="Strawberry cream cake from Sweet Cake Factory" width="400" height="300" loading="lazy"></div>
+        <div class="about-text">
+          <span class="eyebrow">About Sweet Cake Factory</span>
+          <h2>Making every celebration a little sweeter.</h2>
+          <p>Welcome to Sweet Cake Factory, where every cake is made to bring sweetness and happiness to life's special moments.</p>
+          <p>We offer a variety of delicious and beautifully designed cakes perfect for birthdays, anniversaries, celebrations, and other memorable occasions. We believe that every celebration deserves something special, which is why we aim to provide cakes that look beautiful and make every moment more meaningful.</p>
+          <p>Our goal is to make ordering cakes convenient and enjoyable. Through our website, customers can explore our cake selections, view product details, and send order inquiries with ease.</p>
+          <p>At Sweet Cake Factory, every celebration is an opportunity to create sweet memories. Thank you for choosing us to be part of your special moments!</p>
+        </div>
+      </div>
+      <div class="wrap about-features">
+        <div class="about-feature"><div class="about-icon" aria-hidden="true">&#127856;</div><h3>Delicious Cakes</h3><p>For special occasions</p></div>
+        <div class="about-feature"><div class="about-icon" aria-hidden="true">&#10084;&#65039;</div><h3>Made with Care</h3><p>Sweeten every moment</p></div>
+        <div class="about-feature"><div class="about-icon" aria-hidden="true">&#128722;</div><h3>Easy Ordering</h3><p>Browse cakes online</p></div>
+      </div>
+    </section>
+
+    <section class="block" id="contact">
+      <div class="wrap">
+        <div class="section-head"><h2>Contact Us</h2><p>Questions about flavors, sizes, or rush orders? We'd love to hear from you.</p></div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <ul>
+              <li><b>Phone</b><a data-site="phone" href="#">-</a></li>
+              <li><b>Email</b><a data-site="email" href="#">-</a></li>
+              <li><b>Address</b><span data-site="address">-</span></li>
+              <li><b>Hours</b><span data-site="hours">-</span></li>
+              <li><b>Follow us</b><a data-site="facebook" href="#" target="_blank" rel="noopener">Facebook</a> &middot; <a data-site="instagram" href="#" target="_blank" rel="noopener">Instagram</a></li>
+            </ul>
+          </div>
+          <form class="form-card" id="contact-form" novalidate style="max-width:none">
+            <div id="contact-alert" class="alert" role="status" hidden></div>
+            <div class="field-row">
+              <div class="field"><label for="c-name">Name</label><input id="c-name" name="name" type="text" autocomplete="name" maxlength="80" required></div>
+              <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" maxlength="120" required></div>
+            </div>
+            <div class="field"><label for="c-msg">Message</label><textarea id="c-msg" name="message" maxlength="2000" required></textarea></div>
+            <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+            <button class="btn" type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p><b>Sweet Cake Factory</b> &middot; Baked sweet. Made fresh. Shared with love.</p>
+      <p>&copy; <span data-year></span> Sweet Cake Factory. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="validate.js"></script>
+  <script src="backend.js"></script>
+  <script src="api.js"></script>
+  <script src="catalog-data.js"></script>
+  <script src="cart.js"></script>
+  <script src="app.js"></script>
+  <script src="catalog.js"></script>
+  <script src="order.js"></script>
+</body>
+</html>
